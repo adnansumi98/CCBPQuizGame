@@ -1,5 +1,6 @@
 import './App.css'
+import Login from './components/Login'
 
-const App = () => <div>Hello World</div>
+const App = () => <Login />
 
 export default App
