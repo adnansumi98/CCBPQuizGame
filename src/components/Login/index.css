@@ -26,7 +26,7 @@
   padding: 20px;
   background: #f8fafc;
   border-radius: 12px;
-  min-height: 90%;
+  min-height: 80%;
 }
 .form-label {
   font-family: Roboto, sans-serif;
@@ -109,9 +109,9 @@
   left: 10px;
 }
 .checkbox-container label {
-  font-family: HK Grotesk, Roboto, sans-serif;
-  font-size: 14px;
+  font-family: HK Grotesk, Robot, sans-serif;
   font-weight: 400;
+  font-size: 14px;
   line-height: 24px;
   text-align: left;
 }
