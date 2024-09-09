@@ -52,5 +52,11 @@
     color: #afafaf;
     background: #ffffff;
     cursor: pointer;
+    width: Hug (38px) px;
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    text-align: left;
   }
 }
