@@ -1,12 +1,27 @@
+import {useState, useEffect} from 'react'
 import {useHistory} from 'react-router-dom'
 import Header from '../Header'
 import './index.css'
 
 const Home = () => {
+  const [isGameStarted, setIsGameStarted] = useState(false)
   const history = useHistory()
-  const handleStartQuiz = () => {
-    history.push('/quiz-game')
+
+  useEffect(() => {
+    let timer
+    if (isGameStarted) {
+      setTimeout(() => {
+        history.push('/quiz-game')
+      }, 3000)
+    }
+    return () => clearTimeout(timer)
+  }, [isGameStarted, history])
+
+  const handleStartQuiz = e => {
+    e.preventDefault()
+    setIsGameStarted(true)
   }
+
   return (
     <div className="home-container">
       <Header />
@@ -31,6 +46,18 @@ const Home = () => {
           >
             Start Quiz
           </button>
+          {isGameStarted && (
+            <div className="warning-container">
+              <img
+                src="https://assets.ccbp.in/frontend/react-js/quiz-game-error-img.png"
+                alt="warning icon"
+                className="warning-icon"
+              />
+              <p className="warning-text">
+                All the progress will be lost, if you reload during the quiz
+              </p>
+            </div>
+          )}
         </form>
       </div>
     </div>

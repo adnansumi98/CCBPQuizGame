@@ -10,17 +10,3 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-.backgrond-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: linear-gradient(
-    91.08deg,
-    #dbbcc4 9.68%,
-    #f3dfd8 32.98%,
-    #d8bfd0 75.7%,
-    #b7b1d5 99.11%
-  );
-}
