@@ -40,6 +40,15 @@ const QuizItem = props => {
     }
   }, [questionNo, total, timer, history])
 
+  const handleNextQuestion = () => {
+    if (questionNo + 1 < total) {
+      setQuestionNo(prevQuestionNo => prevQuestionNo + 1)
+      setTimer(15)
+    } else {
+      history.push('/game-result')
+    }
+  }
+
   return (
     <div className="quiz-item-container">
       <div className="stats-container">
@@ -55,7 +64,16 @@ const QuizItem = props => {
           <p>{timer}</p>
         </div>
       </div>
-      {/* <Question questionData={questiondata} /> */}
+      <Question questionData={questiondata} />
+      <div className="next-button-container">
+        <button
+          type="button"
+          className="next-button"
+          onClick={handleNextQuestion}
+        >
+          Next
+        </button>
+      </div>
     </div>
   )
 }
