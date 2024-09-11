@@ -28,7 +28,7 @@ const QuizItem = props => {
 
   // set question data for current question
   useEffect(() => {
-    if (questionNo + 1 < total) {
+    if (questionNo + 1 <= total) {
       setQuestionData(questions[questionNo])
     }
   }, [questionNo, total, questions])

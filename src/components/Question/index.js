@@ -16,7 +16,7 @@ const Question = ({questionData}) => {
   }, [selectedOption])
 
   const handleOptionType = () => {
-    switch (questionData.type) {
+    switch (questionData.options_type) {
       case 'SINGLE_SELECT':
         return 'radio'
       case 'IMAGE':
@@ -49,7 +49,14 @@ const Question = ({questionData}) => {
                 type={handleOptionType()}
                 value={option.text}
                 onChange={handleOptionChange}
+                src={option.image_url}
+                alt={option.text}
+                height={100}
+                width={100}
               />
+              {questionData.options_type === 'SINGLE_SELECT' && (
+                <label htmlFor={option.id}>{option.text}</label>
+              )}
             </li>
           ))}
         </ul>
