@@ -15,7 +15,7 @@ const App = () => (
     <ProtectedRoute exact path="/quiz-game" component={QuizGame} />
     <ProtectedRoute exact path="/game-result" component={Result} />
     <ProtectedRoute exact path="/game-report" component={Report} />
-    <Route exact path="/not-found" component={NotFound} />
+    <Route path="*" component={NotFound} />
   </Switch>
 )
 
