@@ -27,8 +27,7 @@ const Home = () => {
             How Many Of These Questions Do You Actually Know?
           </h1>
           <p className="home-description">
-            Test your knowledge and see how many of these questions you actually
-            know.
+            Test yourself with these easy quiz questions and answers
           </p>
           <button
             type="submit"
