@@ -4,18 +4,27 @@ import Header from '../Header'
 import QuizItem from '../QuizItem'
 import './index.css'
 
+const apiStatusConstants = {
+  initial: 'INITIAL',
+  success: 'SUCCESS',
+  failure: 'FAILURE',
+  inProgress: 'IN_PROGRESS',
+}
+
 const QuizGame = () => {
   const [quizData, setQuizData] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
+  const [apiStatus, setApiStatus] = useState(apiStatusConstants.initial)
 
   useEffect(() => {
+    setApiStatus(apiStatusConstants.inProgress)
     try {
       fetch('https://apis.ccbp.in/assess/questions')
         .then(response => response.json())
         .then(data => setQuizData(data))
-        .then(() => setIsLoading(false))
+        .then(() => setApiStatus(apiStatusConstants.success))
     } catch (error) {
       console.log(error)
+      setApiStatus(apiStatusConstants.failure)
     }
   }, [])
 
@@ -24,7 +33,7 @@ const QuizGame = () => {
       <Header />
       <div className="background-container">
         <div className="quiz-game-content" data-testid="loader">
-          {isLoading ? (
+          {apiStatus === apiStatusConstants.inProgress ? (
             <Loader
               type="TailSpin"
               color="#0EA5E9"
