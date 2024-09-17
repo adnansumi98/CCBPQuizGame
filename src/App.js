@@ -1,12 +1,12 @@
 import {Switch, Route} from 'react-router-dom'
 import ProtectedRoute from './components/ProtectedRoute'
-import './App.css'
 import Login from './components/Login'
 import Home from './components/Home'
 import QuizGame from './components/QuizGame'
 import Result from './components/Result'
 import Report from './components/Report'
 import NotFound from './components/NotFound'
+import './App.css'
 
 const App = () => (
   <Switch>

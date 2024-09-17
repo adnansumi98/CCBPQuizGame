@@ -71,7 +71,7 @@ const QuizItem = props => {
           className="next-button"
           onClick={handleNextQuestion}
         >
-          Next
+          Next Question
         </button>
       </div>
     </div>
