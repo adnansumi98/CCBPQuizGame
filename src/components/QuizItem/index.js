@@ -49,6 +49,8 @@ const QuizItem = props => {
     }
   }
 
+  const activeQuestion = questionNo + 1
+  const totalQuestions = total
   return (
     <div className="quiz-item-container">
       <div className="stats-container">
@@ -56,7 +58,7 @@ const QuizItem = props => {
           <p>
             Question <br />
             <span>
-              {questionNo + 1} / {total}
+              {activeQuestion}/{totalQuestions}
             </span>
           </p>
         </div>

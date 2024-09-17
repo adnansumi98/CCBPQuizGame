@@ -23,7 +23,7 @@ const QuizGame = () => {
     <>
       <Header />
       <div className="background-container">
-        <div className="quiz-game-content">
+        <div className="quiz-game-content" data-testid="loader">
           {isLoading ? (
             <Loader
               type="TailSpin"
