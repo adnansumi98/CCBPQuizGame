@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import {useHistory} from 'react-router-dom'
 import Cookies from 'js-cookie'
 import './index.css'
@@ -9,6 +9,13 @@ const Login = () => {
   const [error, setError] = useState('')
   const [showPassword, setShowPassword] = useState(false)
   const history = useHistory()
+
+  useEffect(() => {
+    const jwtToken = Cookies.get('jwt_token')
+    if (jwtToken !== undefined) {
+      history.replace('/')
+    }
+  }, [])
 
   const handleSubmit = async event => {
     event.preventDefault()
@@ -38,13 +45,18 @@ const Login = () => {
   return (
     <div className="background-container">
       <div className="login-form-container">
-        <img src="img/Logo.png" alt="logo" className="logo-login" />
+        <img
+          src="img/Logo.png"
+          className="logo-login"
+          alt="login website logo"
+        />
         <form onSubmit={handleSubmit} className="login-form">
           <div className="input-container">
             <label htmlFor="username" className="form-label">
               USERNAME
             </label>
             <input
+              id="username"
               type="text"
               placeholder="Username"
               value={username}
@@ -57,6 +69,7 @@ const Login = () => {
               PASSWORD
             </label>
             <input
+              id="password"
               type={showPassword ? 'text' : 'password'}
               placeholder="Password"
               value={password}
