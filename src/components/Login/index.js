@@ -24,18 +24,17 @@ const Login = () => {
         method: 'POST',
         body: JSON.stringify({username, password}),
       })
+      const data = await response.json()
       if (response.ok) {
-        const data = await response.json()
         const token = data.jwt_token
-        Cookies.set('jwt_token', token)
+        Cookies.set('jwt_token', token, {expires: 30})
         setUsername('')
         setPassword('')
         setError('')
         history.push('/')
-      } else if (username === '' || password === '') {
-        setError('Please provide username and password')
       } else {
-        setError('Invalid username or password')
+        const errorMessage = data.error_msg
+        setError(errorMessage)
       }
     } catch (e) {
       setError(`${e.message}`)
