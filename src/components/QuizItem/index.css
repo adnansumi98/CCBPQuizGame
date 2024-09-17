@@ -40,7 +40,7 @@
   text-align: center;
   color: #334155;
 }
-.question-no-container p span {
+.question-no-container  span {
   font-family: Inter, Roboto, sans-serif;
   font-size: 16px;
   font-weight: 500;
@@ -106,8 +106,10 @@
 @media (min-width: 786px) {
   .stats-container {
     min-width: 70vw;
-    top: -120px;
+    top: -100px;
+    margin-bottom: 20px;
   }
   .timer-container {
+    left: 90%;
   }
 }
