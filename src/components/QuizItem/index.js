@@ -56,9 +56,9 @@ const QuizItem = props => {
       <div className="stats-container">
         <div className="question-no-container">
           <p>Question</p>
-          <span>
+          <p>
             {activeQuestion}/{totalQuestions}
-          </span>
+          </p>
         </div>
         <div className="timer-container">
           <p>{timer}</p>

@@ -40,7 +40,7 @@
   text-align: center;
   color: #334155;
 }
-.question-no-container span {
+.question-no-container p:nth-child(2) {
   font-family: Inter, Roboto, sans-serif;
   font-size: 16px;
   font-weight: 500;
