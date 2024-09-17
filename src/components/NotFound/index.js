@@ -1,9 +1,25 @@
+import {useHistory} from 'react-router-dom'
 import './index.css'
 
-const NotFound = () => (
-  <div className="not-found-container">
-    <h1>NotFound</h1>
-  </div>
-)
+const NotFound = () => {
+  const history = useHistory()
+  return (
+    <div className="not-found-container">
+      <img
+        src="/img/not-found.png"
+        alt="not found"
+        className="not-found-image"
+      />
+      <h1 className="not-found-heading">Page Not Found</h1>
+      <p className="not-found-description">
+        We are sorry, the page you requested could not be found
+      </p>
+      <p className="not-found-description">Please go back to the homepage</p>
+      <button type="button" onClick={() => history.push('/')}>
+        Home Page
+      </button>
+    </div>
+  )
+}
 
 export default NotFound

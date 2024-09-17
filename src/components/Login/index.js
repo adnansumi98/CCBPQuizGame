@@ -15,7 +15,7 @@ const Login = () => {
     if (jwtToken !== undefined) {
       history.replace('/')
     }
-  }, [])
+  }, [history])
 
   const handleSubmit = async event => {
     event.preventDefault()
@@ -31,7 +31,7 @@ const Login = () => {
         setUsername('')
         setPassword('')
         setError('')
-        history.push('/')
+        history.replace('/')
       } else {
         const errorMessage = data.error_msg
         setError(errorMessage)

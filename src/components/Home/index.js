@@ -1,15 +1,11 @@
-import {useState} from 'react'
 import {useHistory} from 'react-router-dom'
 import Header from '../Header'
 import './index.css'
 
 const Home = () => {
-  const [isGameStarted, setIsGameStarted] = useState(false)
   const history = useHistory()
 
-  const handleStartQuiz = e => {
-    e.preventDefault()
-    setIsGameStarted(true)
+  const handleStartQuiz = () => {
     history.push('/quiz-game')
   }
 
