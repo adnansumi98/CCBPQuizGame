@@ -1,8 +1,7 @@
 import {useState, useEffect} from 'react'
 import './index.css'
-import {queryHelpers} from '@testing-library/dom'
 
-const Question = ({questionData, setScore, setTimer}) => {
+const Question = ({questionData, setScore, isSubmitted}) => {
   const [selectedOption, setSelectedOption] = useState(null)
 
   const handleOptionClick = option => {

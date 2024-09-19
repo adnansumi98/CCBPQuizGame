@@ -10,12 +10,13 @@ const QuizItem = props => {
   const [questiondata, setQuestionData] = useState([])
   const [timer, setTimer] = useState(15)
   const [score, setScore] = useState(0)
+  const [isSubmitted, setIsSubmitted] = useState(false)
   const history = useHistory()
 
   // for timer and question no update when time is up
   useEffect(() => {
     let interval
-    if (timer > 0) {
+    if (timer > 0 && isSubmitted === false) {
       interval = setInterval(() => {
         setTimer(prevTimer => prevTimer - 1)
       }, 1000)
@@ -67,7 +68,7 @@ const QuizItem = props => {
       <Question
         questionData={questiondata}
         setScore={setScore}
-        setTimer={setTimer}
+        setIsSubmitted={setIsSubmitted}
       />
       <div className="next-button-container">
         <button
