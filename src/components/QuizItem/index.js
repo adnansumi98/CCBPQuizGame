@@ -56,17 +56,18 @@ const QuizItem = props => {
       <div className="stats-container">
         <div className="question-no-container">
           <p>Question</p>
-          <p>
+          <p data-testid="question-number">
             {activeQuestion}/{totalQuestions}
           </p>
         </div>
         <div className="timer-container">
-          <p>{timer}</p>
+          <p data-testid="timer">{timer}</p>
         </div>
       </div>
       <Question questionData={questiondata} />
       <div className="next-button-container">
         <button
+          data-testid="next-button"
           type="button"
           className="next-button"
           onClick={handleNextQuestion}

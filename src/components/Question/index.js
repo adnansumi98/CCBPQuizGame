@@ -6,8 +6,8 @@ const Question = ({questionData}) => {
   const [isCorrect, setIsCorrect] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
 
-  const handleOptionChange = event => {
-    setSelectedOption(event.target.value)
+  const handleOptionClick = option => {
+    setSelectedOption(option)
     setIsSubmitted(true)
   }
 
@@ -15,16 +15,16 @@ const Question = ({questionData}) => {
     console.log(selectedOption)
   }, [selectedOption])
 
-  const handleOptionType = () => {
-    switch (questionData.options_type) {
-      case 'SINGLE_SELECT':
-        return 'radio'
-      case 'IMAGE':
-        return 'image'
-      default:
-        return 'text'
-    }
-  }
+  // const handleOptionType = () => {
+  //   switch (questionData.options_type) {
+  //     case 'SINGLE_SELECT':
+  //       return 'radio'
+  //     case 'IMAGE':
+  //       return 'image'
+  //     default:
+  //       return 'text'
+  //   }
+  // }
 
   useEffect(() => {
     console.log(selectedOption)
@@ -45,18 +45,22 @@ const Question = ({questionData}) => {
         <ul>
           {questionData.options.map(option => (
             <li key={option.id}>
-              <input
-                type={handleOptionType()}
-                value={option.text}
-                onChange={handleOptionChange}
-                src={option.image_url}
-                alt={option.text}
-                height={100}
-                width={100}
-              />
-              {questionData.options_type === 'SINGLE_SELECT' && (
-                <label htmlFor={option.id}>{option.text}</label>
-              )}
+              <button
+                type="button"
+                onClick={() => handleOptionClick(option)}
+                data-testid="option"
+              >
+                {questionData.options_type === 'IMAGE' ? (
+                  <img
+                    src={option.image_url}
+                    alt={option.text}
+                    height={100}
+                    width={100}
+                  />
+                ) : (
+                  option.text
+                )}
+              </button>
             </li>
           ))}
         </ul>
