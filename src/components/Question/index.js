@@ -1,30 +1,71 @@
 import {useState, useEffect} from 'react'
 import './index.css'
+import {queryHelpers} from '@testing-library/dom'
 
-const Question = ({questionData}) => {
+const Question = ({questionData, setScore, setTimer}) => {
   const [selectedOption, setSelectedOption] = useState(null)
-  const [isCorrect, setIsCorrect] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
 
   const handleOptionClick = option => {
     setSelectedOption(option)
-    setIsSubmitted(true)
   }
 
   useEffect(() => {
-    console.log(selectedOption)
+    if (selectedOption) {
+      if (selectedOption.is_correct) {
+        setScore(prevScore => prevScore + 1)
+      }
+    }
   }, [selectedOption])
 
-  // const handleOptionType = () => {
-  //   switch (questionData.options_type) {
-  //     case 'SINGLE_SELECT':
-  //       return 'radio'
-  //     case 'IMAGE':
-  //       return 'image'
-  //     default:
-  //       return 'text'
-  //   }
-  // }
+  const renderOptions = option => {
+    switch (questionData.options_type) {
+      case 'SINGLE_SELECT':
+        return (
+          <button
+            className={`option-button ${
+              selectedOption === option ? 'selected' : ''
+            }`}
+            onClick={() => handleOptionClick(option)}
+            data-testid="option"
+            type="button"
+          >
+            <input type="radio" name="option" value={option.text} />
+            {option.text}
+          </button>
+        )
+      case 'IMAGE':
+        return (
+          <button
+            className={`option-button ${
+              selectedOption === option ? 'selected' : ''
+            }`}
+            onClick={() => handleOptionClick(option)}
+            data-testid="option"
+            type="button"
+          >
+            <img
+              src={option.image_url}
+              alt={option.text}
+              height={100}
+              width={100}
+            />
+          </button>
+        )
+      default:
+        return (
+          <button
+            className={`option-button ${
+              selectedOption === option ? 'selected' : ''
+            }`}
+            onClick={() => handleOptionClick(option)}
+            data-testid="option"
+            type="button"
+          >
+            {option.text}
+          </button>
+        )
+    }
+  }
 
   useEffect(() => {
     console.log(selectedOption)
@@ -34,34 +75,13 @@ const Question = ({questionData}) => {
     return <div>Loading question...</div>
   }
 
-  if (isSubmitted) {
-    setIsCorrect(selectedOption === questionData.correct_option_id)
-  }
-
   return (
     <ul className="question-container">
       <li key={questionData.id}>
         <p>{questionData.question_text}</p>
         <ul>
           {questionData.options.map(option => (
-            <li key={option.id}>
-              <button
-                type="button"
-                onClick={() => handleOptionClick(option)}
-                data-testid="option"
-              >
-                {questionData.options_type === 'IMAGE' ? (
-                  <img
-                    src={option.image_url}
-                    alt={option.text}
-                    height={100}
-                    width={100}
-                  />
-                ) : (
-                  option.text
-                )}
-              </button>
-            </li>
+            <li key={option.id}>{renderOptions(option)}</li>
           ))}
         </ul>
       </li>

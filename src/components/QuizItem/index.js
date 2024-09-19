@@ -9,7 +9,7 @@ const QuizItem = props => {
   const [questionNo, setQuestionNo] = useState(0)
   const [questiondata, setQuestionData] = useState([])
   const [timer, setTimer] = useState(15)
-
+  const [score, setScore] = useState(0)
   const history = useHistory()
 
   // for timer and question no update when time is up
@@ -64,7 +64,11 @@ const QuizItem = props => {
           <p data-testid="timer">{timer}</p>
         </div>
       </div>
-      <Question questionData={questiondata} />
+      <Question
+        questionData={questiondata}
+        setScore={setScore}
+        setTimer={setTimer}
+      />
       <div className="next-button-container">
         <button
           data-testid="next-button"
