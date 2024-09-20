@@ -20,8 +20,10 @@ const QuizGame = () => {
     try {
       fetch('https://apis.ccbp.in/assess/questions')
         .then(response => response.json())
-        .then(data => setQuizData(data))
-        .then(() => setApiStatus(apiStatusConstants.success))
+        .then(data => {
+          setQuizData(data)
+          setApiStatus(apiStatusConstants.success)
+        })
     } catch (error) {
       console.log(error)
       setApiStatus(apiStatusConstants.failure)
