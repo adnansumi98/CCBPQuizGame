@@ -20,11 +20,11 @@ const QuizItem = props => {
       interval = setInterval(() => {
         setTimer(prevTimer => prevTimer - 1)
       }, 1000)
-    } else {
-      setQuestionNo(prevQuestionNo => prevQuestionNo + 1)
-      setTimer(15)
+    } else if (isSubmitted === true) {
+      setIsSubmitted(false)
     }
     return () => clearInterval(interval)
+    // eslint-disable-next-line
   }, [timer])
 
   // set question data for current question

@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 import './index.css'
 
-const Question = ({questionData, setScore, isSubmitted}) => {
+const Question = ({questionData, setScore, setIsSubmitted}) => {
   const [selectedOption, setSelectedOption] = useState(null)
 
   const handleOptionClick = option => {
@@ -10,10 +10,12 @@ const Question = ({questionData, setScore, isSubmitted}) => {
 
   useEffect(() => {
     if (selectedOption) {
+      setIsSubmitted(true)
       if (selectedOption.is_correct) {
         setScore(prevScore => prevScore + 1)
       }
     }
+    // eslint-disable-next-line
   }, [selectedOption])
 
   const renderOptions = option => {
@@ -28,8 +30,8 @@ const Question = ({questionData, setScore, isSubmitted}) => {
             data-testid="option"
             type="button"
           >
-            <input type="radio" name="option" value={option.text} />
-            {option.text}
+            <input type="radio" name="option" htmlFor={option.id} />
+            <label htmlFor={option.id}>{option.text}</label>
           </button>
         )
       case 'IMAGE':
@@ -45,7 +47,7 @@ const Question = ({questionData, setScore, isSubmitted}) => {
             <img
               src={option.image_url}
               alt={option.text}
-              height={100}
+              height={40}
               width={100}
             />
           </button>
