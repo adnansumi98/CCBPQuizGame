@@ -34,18 +34,20 @@ const QuizGame = () => {
     <>
       <Header />
       <div className="background-container">
-        <div className="quiz-game-content" data-testid="loader">
+        <div className="quiz-game-content">
           {apiStatus === apiStatusConstants.inProgress ? (
-            <Loader
-              type="TailSpin"
-              color="#0EA5E9"
-              height={80}
-              width={80}
-              radius={1}
-              ariaLabel="tail-spin-loading"
-              wrapperStyle={{}}
-              wrapperClass=""
-            />
+            <div data-testid="loader">
+              <Loader
+                type="TailSpin"
+                color="#0EA5E9"
+                height={80}
+                width={80}
+                radius={1}
+                ariaLabel="tail-spin-loading"
+                wrapperStyle={{}}
+                wrapperClass=""
+              />
+            </div>
           ) : (
             <div>
               <QuizItem quizData={quizData} />
