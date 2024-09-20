@@ -17,17 +17,18 @@ const QuizGame = () => {
 
   useEffect(() => {
     setApiStatus(apiStatusConstants.inProgress)
-    try {
-      fetch('https://apis.ccbp.in/assess/questions')
-        .then(response => response.json())
-        .then(data => {
-          setQuizData(data)
-          setApiStatus(apiStatusConstants.success)
-        })
-    } catch (error) {
-      console.log(error)
-      setApiStatus(apiStatusConstants.failure)
+    const fetchData = async () => {
+      try {
+        const response = await fetch('https://apis.ccbp.in/assess/questions')
+        const data = await response.json()
+        setQuizData(data)
+        setApiStatus(apiStatusConstants.success)
+      } catch (error) {
+        console.log(error)
+        setApiStatus(apiStatusConstants.failure)
+      }
     }
+    fetchData()
   }, [])
 
   return (
