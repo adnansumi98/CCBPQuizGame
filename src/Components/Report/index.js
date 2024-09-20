@@ -17,6 +17,7 @@ const Report = ({
     if (TotalQuestions) {
       setShowReport(true)
     }
+    // eslint-disable-next-line
   }, [])
 
   if (!showReport) {
