@@ -1,12 +1,9 @@
 import {useState, useEffect} from 'react'
+import Options from '../Options'
 import './index.css'
 
-const Question = ({questionData, setScore, setIsSubmitted}) => {
+const Question = ({questionData, setScore, setIsSubmitted, isSubmitted}) => {
   const [selectedOption, setSelectedOption] = useState(null)
-
-  const handleOptionClick = option => {
-    setSelectedOption(option)
-  }
 
   useEffect(() => {
     if (selectedOption) {
@@ -17,56 +14,6 @@ const Question = ({questionData, setScore, setIsSubmitted}) => {
     }
     // eslint-disable-next-line
   }, [selectedOption])
-
-  const renderOptions = option => {
-    switch (questionData.options_type) {
-      case 'SINGLE_SELECT':
-        return (
-          <button
-            className={`option-button ${
-              selectedOption === option ? 'selected' : ''
-            }`}
-            onClick={() => handleOptionClick(option)}
-            data-testid="option"
-            type="button"
-          >
-            <input type="radio" name="option" htmlFor={option.id} />
-            <label htmlFor={option.id}>{option.text}</label>
-          </button>
-        )
-      case 'IMAGE':
-        return (
-          <button
-            className={`option-button ${
-              selectedOption === option ? 'selected' : ''
-            }`}
-            onClick={() => handleOptionClick(option)}
-            data-testid="option"
-            type="button"
-          >
-            <img
-              src={option.image_url}
-              alt={option.text}
-              height={40}
-              width={100}
-            />
-          </button>
-        )
-      default:
-        return (
-          <button
-            className={`option-button ${
-              selectedOption === option ? 'selected' : ''
-            }`}
-            onClick={() => handleOptionClick(option)}
-            data-testid="option"
-            type="button"
-          >
-            {option.text}
-          </button>
-        )
-    }
-  }
 
   useEffect(() => {
     console.log(selectedOption)
@@ -82,7 +29,15 @@ const Question = ({questionData, setScore, setIsSubmitted}) => {
         <p>{questionData.question_text}</p>
         <ul>
           {questionData.options.map(option => (
-            <li key={option.id}>{renderOptions(option)}</li>
+            <li key={option.id}>
+              <Options
+                questionData={questionData}
+                option={option}
+                selectedOption={selectedOption}
+                isSubmitted={isSubmitted}
+                setSelectedOption={setSelectedOption}
+              />
+            </li>
           ))}
         </ul>
       </li>
