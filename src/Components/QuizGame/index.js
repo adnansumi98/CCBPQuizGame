@@ -37,7 +37,7 @@ const QuizGame = () => {
       <div className="background-container">
         <div className="quiz-game-content">
           {apiStatus === apiStatusConstants.inProgress ? (
-            <div data-testid="loader">
+            <div className="loader-container" data-testid="loader">
               <Loader
                 type="TailSpin"
                 color="#0EA5E9"
