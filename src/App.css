@@ -10,3 +10,39 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.background-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(
+    91.08deg,
+    #dbbcc4 9.68%,
+    #f3dfd8 32.98%,
+    #d8bfd0 75.7%,
+    #b7b1d5 99.11%
+  );
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: #f8fafc;
+  border-radius: 12px;
+  min-height: 80%;
+}
+
+@media (min-width: 768px) {
+  .form-container {
+    width: 95%;
+    min-height: 85%;
+    margin-top: 4.5%;
+  }
+  .background-container > .form-container:only-child {
+    margin-top: 0;
+  }
+}

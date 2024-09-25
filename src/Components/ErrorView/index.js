@@ -10,9 +10,9 @@ const ErrorView = () => {
   }
 
   return (
-    <div className="backgrond-container">
+    <div className="background-container">
       <Header />
-      <div className="error-view-container">
+      <div className="form-container">
         <img src="img/Error.png" alt="Error" />
         <h1>Something went Wrong</h1>
         <p>Our servers are busy. Please try again</p>

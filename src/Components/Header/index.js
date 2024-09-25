@@ -11,11 +11,7 @@ const Header = () => {
 
   return (
     <div className="header-container">
-      <img
-        src="/img/logo-header.png"
-        alt="website logo"
-        className="header-logo"
-      />
+      <img src="/img/Logo.png" alt="website logo" className="header-logo" />
       <div className="logout-container">
         <img
           src="/img/log-out.png"

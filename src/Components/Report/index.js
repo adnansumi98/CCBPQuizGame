@@ -24,12 +24,12 @@ const Report = ({
     history.push('/error-view')
   }
 
-  const handleReportButton = () => {
+  const handleResultButton = () => {
     history.push('/game-result')
   }
 
   return (
-    <div className="report-container">
+    <div className="form-container">
       <div className="correct-total-questions">
         <p>{correctAnswers / TotalQuestions}</p>
       </div>
@@ -56,9 +56,9 @@ const Report = ({
         </ul>
       )}
       <button
-        onClick={handleReportButton}
+        onClick={handleResultButton}
         type="button"
-        className="report-button"
+        className="result-button"
       >
         Result
       </button>

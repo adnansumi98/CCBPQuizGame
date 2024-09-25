@@ -10,9 +10,9 @@ const Home = () => {
   }
 
   return (
-    <div className="home-container">
+    <div className="background-container">
       <Header />
-      <div className="start-quiz-container">
+      <div className="form-container">
         <form>
           <img
             src="https://assets.ccbp.in/frontend/react-js/quiz-game-start-the-quiz-img.png"

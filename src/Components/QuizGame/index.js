@@ -32,9 +32,9 @@ const QuizGame = () => {
   }, [])
 
   return (
-    <>
+    <div className="background-container">
       <Header />
-      <div className="background-container">
+      <div className="form-container">
         <div className="quiz-game-content">
           {apiStatus === apiStatusConstants.inProgress ? (
             <div className="loader-container" data-testid="loader">
@@ -56,7 +56,7 @@ const QuizGame = () => {
           )}
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

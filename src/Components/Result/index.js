@@ -4,7 +4,7 @@ import './index.css'
 const Result = ({success, score, correct, total}) => (
   <div className="background-container">
     <Header />
-    <div className="result-container">
+    <div className="form-container">
       <img
         src={success ? '/img/Success.png' : '/img/Failure.png'}
         alt={success ? 'success' : 'failure'}
