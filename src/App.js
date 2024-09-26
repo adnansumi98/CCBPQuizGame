@@ -6,7 +6,6 @@ import QuizGame from './Components/QuizGame'
 import Result from './Components/Result'
 import Report from './Components/Report'
 import NotFound from './Components/NotFound'
-import ErrorView from './Components/ErrorView'
 import './App.css'
 
 const App = () => (
