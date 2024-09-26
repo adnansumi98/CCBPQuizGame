@@ -1,25 +1,25 @@
 .error-view-image {
-    width: 200px;
-    margin-bottom: 20px;
+  width: 200px;
+  margin-bottom: 20px;
 }
 
 .error-view-container h1 {
-    font-size: 24px;
-    color: #475569;
-    margin-bottom: 10px;
+  font-size: 24px;
+  color: #475569;
+  margin-bottom: 10px;
 }
 
 .error-view-container p {
-    font-size: 16px;
-    color: #64748b;
-    margin-bottom: 20px;
+  font-size: 16px;
+  color: #64748b;
+  margin-bottom: 20px;
 }
 
 .error-view-container button {
-    padding: 10px 20px;
-    background-color: #0ea5e9;
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  padding: 10px 20px;
+  background-color: #0ea5e9;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
