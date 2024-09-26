@@ -2,6 +2,7 @@ import Loader from 'react-loader-spinner'
 import {useEffect, useState} from 'react'
 import Header from '../Header'
 import QuizItem from '../QuizItem'
+import ErrorView from '../ErrorView'
 import './index.css'
 
 const apiStatusConstants = {
@@ -15,46 +16,64 @@ const QuizGame = () => {
   const [quizData, setQuizData] = useState([])
   const [apiStatus, setApiStatus] = useState(apiStatusConstants.initial)
 
-  useEffect(() => {
+  const fetchData = async () => {
     setApiStatus(apiStatusConstants.inProgress)
-    const fetchData = async () => {
-      try {
-        const response = await fetch('https://apis.ccbp.in/assess/questions')
+    try {
+      const response = await fetch('https://apis.ccbp.in/assess/questions')
+      if (response.ok) {
         const data = await response.json()
         setQuizData(data)
         setApiStatus(apiStatusConstants.success)
-      } catch (error) {
-        console.log(error)
+      } else {
         setApiStatus(apiStatusConstants.failure)
       }
+    } catch (error) {
+      console.log(error)
+      setApiStatus(apiStatusConstants.failure)
     }
+  }
+
+  useEffect(() => {
     fetchData()
   }, [])
+
+  const renderLoadingView = () => (
+    <div className="loader-container" data-testid="loader">
+      <Loader
+        type="TailSpin"
+        color="#0EA5E9"
+        height={80}
+        width={80}
+        radius={1}
+        ariaLabel="tail-spin-loading"
+      />
+    </div>
+  )
+
+  const renderFailureView = () => (
+    <ErrorView onRetry={fetchData} /> // Pass fetchData as onRetry prop
+  )
+
+  const renderSuccessView = () => <QuizItem quizData={quizData} />
+
+  const renderQuizGameContent = () => {
+    switch (apiStatus) {
+      case apiStatusConstants.inProgress:
+        return renderLoadingView()
+      case apiStatusConstants.success:
+        return renderSuccessView()
+      case apiStatusConstants.failure:
+        return renderFailureView()
+      default:
+        return null
+    }
+  }
 
   return (
     <div className="background-container">
       <Header />
       <div className="form-container">
-        <div className="quiz-game-content">
-          {apiStatus === apiStatusConstants.inProgress ? (
-            <div className="loader-container" data-testid="loader">
-              <Loader
-                type="TailSpin"
-                color="#0EA5E9"
-                height={80}
-                width={80}
-                radius={1}
-                ariaLabel="tail-spin-loading"
-                wrapperStyle={{}}
-                wrapperClass=""
-              />
-            </div>
-          ) : (
-            <div>
-              <QuizItem quizData={quizData} />
-            </div>
-          )}
-        </div>
+        <div className="quiz-game-content">{renderQuizGameContent()}</div>
       </div>
     </div>
   )
