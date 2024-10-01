@@ -2,8 +2,7 @@ ul {
   list-style: none;
 }
 .question-container {
-  position: relative;
-  bottom: 100px;
+  margin-left: -30px;
 }
 .question-container p {
   font-family: 'Inter', 'Roboto', 'sans-serif';
@@ -21,41 +20,20 @@ ul {
   right: 40px;
   background-color: transparent;
 }
-.question-container ul li input {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 8px 24px;
-  gap: 10px;
-  width: 221px;
-  height: 48px;
-  background: #cbd5e1;
-  border: transparent;
-  border-radius: 8px;
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-  font-family: 'Inter', 'Roboto', 'sans-serif';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 32px;
-  color: #334155;
-}
 
-.question-container ul {
+.options-container {
   display: flex;
   flex-direction: column;
 }
 
 @media (min-width: 768px) {
-  .question-container ul {
+  .options-container {
     flex-direction: row;
+    width: 70vw;
     flex-wrap: wrap;
-    justify-content: space-evenly;
-    flex: 1 1 calc(50% - 10px);
-    max-width: calc(50% - 10px);
+    justify-content: space-between;
   }
+
   .question-container p {
     font-size: 18px;
     margin-bottom: 28px;

@@ -25,7 +25,7 @@
   opacity: 0px;
 }
 .form-container form h1 {
-  font-family: Inter, Roboto, sans-serif;
+  font-family: 'Inter', 'Roboto', sans-serif;
   font-size: 16px;
   font-weight: 600;
   line-height: 19.36px;
@@ -34,7 +34,7 @@
   margin-top: 20px;
 }
 .form-container form p {
-  font-family: Inter;
+  font-family: 'Inter', 'Roboto', sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 16.94px;
@@ -50,7 +50,7 @@
   opacity: 0px;
   background: #0ea5e9;
   color: #f8fafc;
-  font-family: Inter, Roboto, sans-serif;
+  font-family: 'Inter', 'Roboto', sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 24px;
@@ -85,7 +85,7 @@
   margin-right: 0px !important;
 }
 .warning-text {
-  font-family: Inter;
+  font-family: 'Inter', 'Roboto', sans-serif;
   font-size: 12px;
   font-weight: 400;
   line-height: 16px;
@@ -118,6 +118,7 @@
     line-height: 20px;
     text-align: center;
     color: #0ea5e9;
+    font-family: 'Inter', 'Roboto', sans-serif;
   }
   .form-container form p {
     font-size: 16px;
@@ -125,6 +126,7 @@
     line-height: 8px;
     text-align: center;
     color: #475569;
+    font-family: 'Inter', 'Roboto', sans-serif;
   }
   .form-container form button {
     width: Hug (100px) px;
@@ -134,6 +136,7 @@
     gap: 0px;
     opacity: 0px;
     margin-bottom: 10px;
+    font-family: 'Inter', 'Roboto', sans-serif;
   }
   .warning-container {
     display: flex;
@@ -141,11 +144,10 @@
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 82%;
+    top: 80%;
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
-    margin-top: 0px;
     min-width: 517px;
     min-height: 52px;
     padding: 12px 24px 12px 24px;
@@ -153,6 +155,7 @@
     border-radius: 12px;
     opacity: 0px;
     background: #fef3c7;
+    font-family: 'Inter', 'Roboto', sans-serif;
   }
   .warning-icon {
     width: 24px !important;
@@ -163,7 +166,7 @@
   }
   .warning-text {
     margin-left: 10px;
-    font-family: Inter;
+    font-family: 'Inter', 'Roboto', sans-serif;
     font-size: 16px;
     font-weight: 500;
     line-height: 28px;

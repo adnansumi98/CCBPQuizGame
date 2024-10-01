@@ -101,7 +101,7 @@
   border-radius: 8px;
   opacity: 0px;
   background: #0ea5e9;
-  font-family: Inter, Roboto, sans-serif;
+  font-family: 'Inter', 'Roboto', sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 24px;
@@ -109,6 +109,12 @@
   color: #ffffff;
   border: none;
   cursor: pointer;
+}
+.login-form {
+  display: flex;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 @media (min-width: 768px) {
   .login-form {

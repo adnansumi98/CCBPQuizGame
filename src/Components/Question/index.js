@@ -27,7 +27,7 @@ const Question = ({questionData, setScore, setIsSubmitted, isSubmitted}) => {
     <ul className="question-container">
       <li key={questionData.id}>
         <p>{questionData.question_text}</p>
-        <ul>
+        <ul className="options-container">
           {questionData.options.map(option => (
             <li key={option.id}>
               <Options

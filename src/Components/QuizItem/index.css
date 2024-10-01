@@ -1,115 +1,101 @@
 .quiz-item-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 20px;
-  max-width: 90%;
-  min-height: 80%;
+  justify-content: flex-start;
+  align-items: center;
 }
 .stats-container {
-  margin-top: 100px;
-  margin-left: 40px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 0px;
-  gap: 115px;
-  position: relative;
-  min-width: 296px;
   height: 64px;
-  left: -10px;
-  bottom: 100px;
+  width: 100%;
 }
 .question-no-container {
-  width: Hug (101px) px;
-  height: Hug (64px) px;
+  width: 101px;
+  height: 54px;
   padding: 8px 16px 8px 16px;
-  gap: 10px;
-  position: absolute;
   border-radius: 4px;
-  opacity: 0px;
   background: #d2a7b3;
 }
 .question-no-container p {
-  font-family: Inter, Roboto, sans-serif;
-  font-size: 16px;
+  font-family: 'Inter', 'Roboto', sans-serif;
+  font-size: 15px;
   font-weight: 500;
-  line-height: 19.36px;
   text-align: center;
   color: #334155;
+  margin: 0px;
+  margin-bottom: 2px;
 }
 .question-no-container p:nth-child(2) {
-  font-family: Inter, Roboto, sans-serif;
-  font-size: 16px;
+  font-family: 'Inter', 'Roboto', sans-serif;
+  font-size: 18px;
   font-weight: 500;
-  line-height: 19.36px;
   text-align: center;
   color: #f8fafc;
+  margin: 0px;
 }
 .timer-container {
-  width: 48px;
-  height: 48px;
-  position: absolute;
+  width: 38px;
+  height: 38px;
   left: 80%;
-  gap: 0px;
-  opacity: 0px;
-  border-radius: 24px;
+  border-radius: 25px;
   border: 2px solid #0ea5e9;
 }
 .timer-container p {
   width: 26px;
   height: 18px;
-  gap: 0px;
-  opacity: 0px;
-  font-family: Inter, Roboto, sans-serif;
+  font-family: 'Inter', 'Roboto', sans-serif;
   font-size: 24px;
   font-weight: 400;
   line-height: 32px;
   text-align: center;
   color: #1e293b;
   position: relative;
-  bottom: 15px;
-  left: 8px;
+  bottom: 22px;
+  left: 4px;
 }
 
 .next-button-container {
+  position: absolute;
+  top: 80%;
+  right: 20%;
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
 }
 .next-button-container button {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 8px 20px;
-  gap: 10px;
-  position: absolute;
-  width: 136px;
+  padding: 8px;
+  width: 120px;
   height: 40px;
-  left: calc(50% - 136px / 2 + 72px);
-  top: 80vh;
   background: #cbd5e1;
   border: transparent;
-  border-radius: 4px;
+  border-radius: 8px;
   font-family: 'Inter', 'roboto', 'sans-serif';
   font-style: normal;
   font-weight: 500;
-  font-size: 14px;
-  line-height: 24px;
+  font-size: 13px;
   text-align: center;
   color: #7d7d7d;
 }
 
+.nxtbtn-active {
+  background: #0ea5e9;
+  color: #f8fafc;
+}
+
 @media (min-width: 786px) {
   .stats-container {
-    min-width: 70vw;
-    top: -100px;
-    margin-bottom: 20px;
+    min-width: 80vw;
   }
   .timer-container {
     left: 90%;
+  }
+  .next-button-container {
+    top: 80%;
+    right: 20%;
   }
 }

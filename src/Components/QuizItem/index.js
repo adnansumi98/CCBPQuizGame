@@ -74,7 +74,7 @@ const QuizItem = props => {
         <button
           data-testid="next-button"
           type="button"
-          className="next-button"
+          className={`next-button ${isSubmitted ? 'nxtbtn-active' : ''}`}
           onClick={handleNextQuestion}
         >
           Next Question

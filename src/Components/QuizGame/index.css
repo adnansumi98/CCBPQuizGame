@@ -1,4 +1,4 @@
-.background-container {
+/* .background-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,4 +10,8 @@
     #d8bfd0 75.7%,
     #b7b1d5 99.11%
   );
+} */
+
+.quiz-game-content {
+  min-height: 100%;
 }

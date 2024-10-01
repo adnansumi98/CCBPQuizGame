@@ -4,12 +4,13 @@
   width: 221px;
   height: 48px;
   padding: 8px 24px 8px 24px;
+  font-weight: 400;
   gap: 10px;
   border-radius: 8px;
-  opacity: 0px;
   text-align: left;
-  font-family: inter, Roboto, sans-serif;
+  font-family: 'Inter', 'Roboto', sans-serif;
   font-size: 14px;
+  margin-top: 10px;
 }
 .option-image {
   width: 176px;
@@ -20,14 +21,8 @@
 
 @media (min-width: 768px) {
   .option-button {
-    width: 25vw;
-    height: 10vh;
-    top: 341px;
-    left: 293px;
-    gap: 0px;
-    opacity: 0px;
-    font-weight: 400;
+    width: min(25vw, 380px);
+    height: min(8vh, 64px);
     font-size: 16px;
-    text-align: left;
   }
 }
