@@ -1,3 +1,5 @@
+import './index.css'
+
 const Options = ({
   questionData,
   option,
@@ -5,9 +7,17 @@ const Options = ({
   isSubmitted,
   setSelectedOption,
 }) => {
+  const getPrefix = index => {
+    const prefixes = ['A', 'B', 'C', 'D']
+    return index >= prefixes.length
+      ? String.fromCharCode(65 + (index % prefixes.length))
+      : prefixes[index]
+  }
+
   const handleOptionClick = opt => {
     setSelectedOption(opt)
   }
+
   switch (questionData.options_type) {
     case 'SINGLE_SELECT':
       return (
@@ -19,27 +29,26 @@ const Options = ({
           data-testid="option"
           type="button"
         >
-          <input type="radio" name="option" htmlFor={option.id} />
+          <input
+            type="radio"
+            name="option"
+            htmlFor={option.id}
+            checked={selectedOption === option}
+          />
           <label htmlFor={option.id}>{option.text}</label>
         </button>
       )
     case 'IMAGE':
       return (
-        <button
-          className={`option-button ${
-            selectedOption === option ? 'selected' : ''
-          }`}
+        <img
           onClick={() => handleOptionClick(option)}
           data-testid="option"
-          type="button"
-        >
-          <img
-            src={option.image_url}
-            alt={option.text}
-            height={40}
-            width={100}
-          />
-        </button>
+          src={option.image_url}
+          alt={option.text}
+          className={`option-image ${
+            selectedOption === option ? 'selected' : ''
+          }`}
+        />
       )
     default:
       return (
@@ -51,7 +60,8 @@ const Options = ({
           data-testid="option"
           type="button"
         >
-          {option.text}
+          {getPrefix(questionData.options.indexOf(option))}
+          {/* prefix for options */}. {option.text}
         </button>
       )
   }

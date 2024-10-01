@@ -19,7 +19,7 @@ ul {
 .question-container ul li {
   position: relative;
   right: 40px;
-  margin-bottom: 10px;
+  background-color: transparent;
 }
 .question-container ul li input {
   display: flex;
@@ -41,4 +41,24 @@ ul {
   font-size: 14px;
   line-height: 32px;
   color: #334155;
+}
+
+.question-container ul {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .question-container ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    flex: 1 1 calc(50% - 10px);
+    max-width: calc(50% - 10px);
+  }
+  .question-container p {
+    font-size: 18px;
+    margin-bottom: 28px;
+    line-height: 24px;
+  }
 }

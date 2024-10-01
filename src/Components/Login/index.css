@@ -35,6 +35,7 @@
 .checkbox-container label {
   font-size: 16px;
   font-weight: 500;
+  color: #7e858e;
 }
 .form-button {
   width: 100%;
@@ -113,5 +114,9 @@
   .login-form {
     width: Fill (411px) px;
     height: Hug (40px) px;
+  }
+  .checkbox-container {
+    position: relative;
+    right: 20vw;
   }
 }

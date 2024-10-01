@@ -1,0 +1,33 @@
+.option-button {
+  background: #cbd5e1;
+  color: #334155;
+  width: 221px;
+  height: 48px;
+  padding: 8px 24px 8px 24px;
+  gap: 10px;
+  border-radius: 8px;
+  opacity: 0px;
+  text-align: left;
+  font-family: inter, Roboto, sans-serif;
+  font-size: 14px;
+}
+.option-image {
+  width: 176px;
+  height: 50px;
+  margin-bottom: 12px;
+  opacity: 0px;
+}
+
+@media (min-width: 768px) {
+  .option-button {
+    width: 25vw;
+    height: 10vh;
+    top: 341px;
+    left: 293px;
+    gap: 0px;
+    opacity: 0px;
+    font-weight: 400;
+    font-size: 16px;
+    text-align: left;
+  }
+}

@@ -37,16 +37,6 @@ const QuizGame = () => {
     fetchData()
   }, [])
 
-  useEffect(() => {
-    if (apiStatus === apiStatusConstants.success) {
-      const timer = setTimeout(() => {
-        setApiStatus(apiStatusConstants.success)
-      }, 1000) // Add a 1 second delay
-      return () => clearTimeout(timer)
-    }
-    return () => {} // Always return an empty object
-  }, [apiStatus])
-
   const renderLoadingView = () => (
     <div className="loader-container" data-testid="loader">
       <Loader
