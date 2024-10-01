@@ -4,7 +4,7 @@ import './index.css'
 const NotFound = () => {
   const history = useHistory()
   return (
-    <div className="form-container">
+    <div className="form-container form-col">
       <img
         src="/img/not-found.png"
         className="not-found-image"

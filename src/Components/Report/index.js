@@ -29,7 +29,7 @@ const Report = ({
   }
 
   return (
-    <div className="form-container">
+    <div className="form-container form-col">
       <div className="correct-total-questions">
         <p>{correctAnswers / TotalQuestions}</p>
       </div>

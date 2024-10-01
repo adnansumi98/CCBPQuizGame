@@ -36,7 +36,12 @@ body {
   border-radius: 12px;
   min-height: 80%;
 }
-
+.form-col {
+  display: flex;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
 @media (min-width: 768px) {
   .form-container {
     min-height: 80%;

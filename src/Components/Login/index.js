@@ -43,7 +43,7 @@ const Login = () => {
 
   return (
     <div className="background-container">
-      <div className="form-container login-form">
+      <div className="form-container form-col">
         <img
           src="img/Logo.png"
           className="logo-login"

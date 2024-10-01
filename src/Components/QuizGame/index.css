@@ -14,4 +14,11 @@
 
 .quiz-game-content {
   min-height: 100%;
+  min-width: 80%;
+}
+.loader-container {
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
