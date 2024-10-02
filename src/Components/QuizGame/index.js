@@ -1,5 +1,6 @@
 import Loader from 'react-loader-spinner'
-import {useEffect, useState} from 'react'
+import {useEffect, useState, useContext} from 'react'
+import {GameContext} from '../../Utilities/GameContext'
 import Header from '../Header'
 import QuizItem from '../QuizItem'
 import ErrorView from '../ErrorView'
@@ -16,6 +17,8 @@ const QuizGame = () => {
   const [quizData, setQuizData] = useState([])
   const [apiStatus, setApiStatus] = useState(apiStatusConstants.initial)
 
+  const {setTotalQuestions} = useContext(GameContext)
+
   const fetchData = async () => {
     setApiStatus(apiStatusConstants.inProgress)
     try {
@@ -23,6 +26,7 @@ const QuizGame = () => {
       if (response.ok) {
         const data = await response.json()
         setQuizData(data)
+        setTotalQuestions(data.total)
         setApiStatus(apiStatusConstants.success)
       } else {
         setApiStatus(apiStatusConstants.failure)
