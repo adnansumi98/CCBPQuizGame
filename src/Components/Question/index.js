@@ -1,22 +1,29 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useContext} from 'react'
 import Options from '../Options'
+import {GameContext} from '../../Utilities/GameContext'
 import './index.css'
 
-const Question = ({questionData, setScore, setIsSubmitted, isSubmitted}) => {
+const Question = ({
+  questionData,
+  setIsSubmitted,
+  isSubmitted,
+  scoreUpdated,
+  setScoreUpdated,
+}) => {
   const [selectedOption, setSelectedOption] = useState(null)
+  const {setScore} = useContext(GameContext)
 
   useEffect(() => {
+    setIsSubmitted(true)
+    // console.log(selectedOption)
+    setSelectedOption(selectedOption)
     if (selectedOption) {
-      setIsSubmitted(true)
-      if (selectedOption.is_correct) {
+      if (selectedOption.is_correct === 'true' && scoreUpdated === false) {
         setScore(prevScore => prevScore + 1)
+        setScoreUpdated(true)
       }
     }
     // eslint-disable-next-line
-  }, [selectedOption])
-
-  useEffect(() => {
-    console.log(selectedOption)
   }, [selectedOption])
 
   if (!questionData || !questionData.options) {

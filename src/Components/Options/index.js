@@ -25,7 +25,7 @@ const Options = ({
           <input
             type="radio"
             name="option"
-            htmlFor={option.id}
+            id={option.id}
             checked={selectedOption === option}
             onChange={() => handleOptionClick(option)}
             data-testid="option"

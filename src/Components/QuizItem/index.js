@@ -9,8 +9,8 @@ const QuizItem = props => {
   const [questionNo, setQuestionNo] = useState(0)
   const [questiondata, setQuestionData] = useState([])
   const [timer, setTimer] = useState(15)
-  const [score, setScore] = useState(0)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [scoreUpdated, setScoreUpdated] = useState(false)
   const history = useHistory()
 
   // for timer and question no update when time is up
@@ -20,12 +20,14 @@ const QuizItem = props => {
       interval = setInterval(() => {
         setTimer(prevTimer => prevTimer - 1)
       }, 1000)
-    } else if (isSubmitted === true) {
-      setIsSubmitted(false)
     }
     return () => clearInterval(interval)
     // eslint-disable-next-line
   }, [timer])
+
+  // useEffect(() => {
+  //   console.log(isSubmitted)
+  // }, [isSubmitted])
 
   // set question data for current question
   useEffect(() => {
@@ -45,6 +47,7 @@ const QuizItem = props => {
     if (questionNo + 1 < total) {
       setQuestionNo(prevQuestionNo => prevQuestionNo + 1)
       setTimer(15)
+      setIsSubmitted(false)
     } else {
       history.push('/game-result')
     }
@@ -67,8 +70,10 @@ const QuizItem = props => {
       </div>
       <Question
         questionData={questiondata}
-        setScore={setScore}
         setIsSubmitted={setIsSubmitted}
+        isSubmitted={isSubmitted}
+        scoreUpdated={scoreUpdated}
+        setScoreUpdated={setScoreUpdated}
       />
       <div className="next-button-container">
         <button
@@ -76,6 +81,7 @@ const QuizItem = props => {
           type="button"
           className={`next-button ${isSubmitted ? 'nxtbtn-active' : ''}`}
           onClick={handleNextQuestion}
+          disabled={!isSubmitted}
         >
           Next Question
         </button>
