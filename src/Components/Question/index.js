@@ -27,7 +27,11 @@ const Question = ({questionData, setScore, setIsSubmitted, isSubmitted}) => {
     <ul className="question-container">
       <li key={questionData.id}>
         <p>{questionData.question_text}</p>
-        <ul className="options-container">
+        <ul
+          className={`options-container ${
+            questionData.options_type === 'SINGLE_SELECT' ? 'flex-unwrap' : ''
+          }`}
+        >
           {questionData.options.map(option => (
             <li key={option.id}>
               <Options

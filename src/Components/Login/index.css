@@ -110,12 +110,7 @@
   border: none;
   cursor: pointer;
 }
-.login-form {
-  display: flex;
-  flex-direction: column !important;
-  align-items: center !important;
-  justify-content: center !important;
-}
+
 @media (min-width: 768px) {
   .login-form {
     width: Fill (411px) px;

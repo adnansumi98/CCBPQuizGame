@@ -25,4 +25,16 @@
     height: min(8vh, 64px);
     font-size: 16px;
   }
+  .option-radio {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    line-height: 25px;
+  }
+  .option-radio input {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+  }
 }

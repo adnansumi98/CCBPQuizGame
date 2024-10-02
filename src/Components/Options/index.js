@@ -21,22 +21,17 @@ const Options = ({
   switch (questionData.options_type) {
     case 'SINGLE_SELECT':
       return (
-        <button
-          className={`option-button ${
-            selectedOption === option ? 'selected' : ''
-          }`}
-          onClick={() => handleOptionClick(option)}
-          data-testid="option"
-          type="button"
-        >
+        <div className="option-radio">
           <input
             type="radio"
             name="option"
             htmlFor={option.id}
             checked={selectedOption === option}
+            onChange={() => handleOptionClick(option)}
+            data-testid="option"
           />
           <label htmlFor={option.id}>{option.text}</label>
-        </button>
+        </div>
       )
     case 'IMAGE':
       return (
