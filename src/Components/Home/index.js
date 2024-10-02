@@ -19,7 +19,7 @@ const Home = () => (
           Test yourself with these easy quiz questions and answers
         </p>
         <Link to="/quiz-game">
-          <button type="submit" className="home-button">
+          <button type="button" className="home-button">
             Start Quiz
           </button>
         </Link>
