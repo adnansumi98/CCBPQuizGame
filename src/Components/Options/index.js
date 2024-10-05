@@ -9,9 +9,7 @@ const Options = ({questionData, option, selectedOption, setSelectedOption}) => {
   }
 
   const handleOptionClick = opt => {
-    if (selectedOption === null) {
-      setSelectedOption(opt)
-    }
+    setSelectedOption(opt)
   }
 
   const isSelected = selectedOption && selectedOption.id === option.id

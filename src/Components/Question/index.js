@@ -12,6 +12,7 @@ const Question = ({
   scoreUpdated,
   setScoreUpdated,
 }) => {
+  // used in Options file for rendering
   const [selectedOption, setSelectedOption] = useState(null)
   const {setScore} = useContext(GameContext)
 
@@ -99,9 +100,11 @@ const Question = ({
       // Update score if correct and score hasn't been updated
       if (selectedOption.is_correct && !scoreUpdated) {
         setScore(prevScore => prevScore + 1)
+        setIsSubmitted(false)
         setScoreUpdated(true)
       }
     }
+    // eslint: disable-next-line
   }, [
     selectedOption,
     isSubmitted,
@@ -110,6 +113,13 @@ const Question = ({
     setScoreUpdated,
     setScore,
   ])
+
+  // Reset selected option when a new question is loaded
+  useEffect(() => {
+    setSelectedOption(null)
+    setIsSubmitted(false)
+    setScoreUpdated(false)
+  }, [questionData, setIsSubmitted, setScoreUpdated])
 
   if (!questionData || !questionData.options) {
     return <div>Loading question...</div>
