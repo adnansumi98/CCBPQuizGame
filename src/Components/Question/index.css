@@ -26,6 +26,13 @@ ul {
   flex-direction: column;
 }
 
+.options-container li {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (min-width: 768px) {
   .options-container {
     flex-direction: row;

@@ -38,3 +38,7 @@
     margin-right: 8px;
   }
 }
+.answer-status-image {
+  position: absolute;
+  left: 210px;
+}

@@ -1,12 +1,6 @@
 import './index.css'
 
-const Options = ({
-  questionData,
-  option,
-  selectedOption,
-  isSubmitted,
-  setSelectedOption,
-}) => {
+const Options = ({questionData, option, selectedOption, setSelectedOption}) => {
   const getPrefix = index => {
     const prefixes = ['A', 'B', 'C', 'D']
     return index >= prefixes.length
@@ -15,8 +9,12 @@ const Options = ({
   }
 
   const handleOptionClick = opt => {
-    setSelectedOption(opt)
+    if (selectedOption === null) {
+      setSelectedOption(opt)
+    }
   }
+
+  const isSelected = selectedOption && selectedOption.id === option.id
 
   switch (questionData.options_type) {
     case 'SINGLE_SELECT':
@@ -26,7 +24,7 @@ const Options = ({
             type="radio"
             name="option"
             id={option.id}
-            checked={selectedOption === option}
+            checked={isSelected}
             onChange={() => handleOptionClick(option)}
             data-testid="option"
           />
@@ -40,23 +38,18 @@ const Options = ({
           data-testid="option"
           src={option.image_url}
           alt={option.text}
-          className={`option-image ${
-            selectedOption === option ? 'selected' : ''
-          }`}
+          className={`option-image ${isSelected ? 'selected' : ''}`}
         />
       )
     default:
       return (
         <button
-          className={`option-button ${
-            selectedOption === option ? 'selected' : ''
-          }`}
+          className={`option-button ${isSelected ? 'selected' : ''}`}
           onClick={() => handleOptionClick(option)}
           data-testid="option"
           type="button"
         >
-          {getPrefix(questionData.options.indexOf(option))}
-          {/* prefix for options */}. {option.text}
+          {getPrefix(questionData.options.indexOf(option))}. {option.text}
         </button>
       )
   }

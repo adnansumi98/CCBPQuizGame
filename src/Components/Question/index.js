@@ -1,5 +1,7 @@
 import {useState, useEffect, useContext} from 'react'
 import Options from '../Options'
+import CorrectAnswer from '../CorrectAnswer'
+import WrongAnswer from '../WrongAnswer'
 import {GameContext} from '../../Utilities/GameContext'
 import './index.css'
 
@@ -13,18 +15,101 @@ const Question = ({
   const [selectedOption, setSelectedOption] = useState(null)
   const {setScore} = useContext(GameContext)
 
+  const renderOptions = () => (
+    <>
+      {questionData.options.map(option => (
+        <li key={option.id}>
+          <Options
+            questionData={questionData}
+            option={option}
+            selectedOption={selectedOption}
+            setSelectedOption={setSelectedOption}
+          />
+        </li>
+      ))}
+    </>
+  )
+
+  const renderCorrectOptions = () => (
+    <>
+      {questionData.options.map(option => (
+        <li key={option.id}>
+          {selectedOption.id === option.id ? (
+            <CorrectAnswer questionData={questionData} option={option} />
+          ) : (
+            <Options
+              questionData={questionData}
+              option={option}
+              selectedOption={selectedOption}
+              setSelectedOption={setSelectedOption}
+            />
+          )}
+        </li>
+      ))}
+    </>
+  )
+
+  const renderWrongOptions = () => (
+    <>
+      {questionData.options.map(option => {
+        if (selectedOption.id === option.id) {
+          return (
+            <li key={option.id}>
+              <WrongAnswer questionData={questionData} option={option} />
+            </li>
+          )
+        }
+
+        if (option.is_correct === 'true') {
+          return (
+            <li key={option.id}>
+              <CorrectAnswer questionData={questionData} option={option} />
+            </li>
+          )
+        }
+
+        return (
+          <li key={option.id}>
+            <Options
+              questionData={questionData}
+              option={option}
+              selectedOption={selectedOption}
+              setSelectedOption={setSelectedOption}
+            />
+          </li>
+        )
+      })}
+    </>
+  )
+
+  const optionsLogic = () => {
+    console.log(selectedOption)
+    if (!selectedOption) return renderOptions()
+
+    if (selectedOption.is_correct === 'true') return renderCorrectOptions()
+    if (selectedOption.is_correct === 'false') return renderWrongOptions()
+
+    return ''
+  }
+
   useEffect(() => {
-    setIsSubmitted(true)
-    // console.log(selectedOption)
-    setSelectedOption(selectedOption)
-    if (selectedOption) {
-      if (selectedOption.is_correct === 'true' && scoreUpdated === false) {
+    if (selectedOption && !isSubmitted) {
+      setIsSubmitted(true)
+
+      // Update score if correct and score hasn't been updated
+      if (selectedOption.is_correct && !scoreUpdated) {
         setScore(prevScore => prevScore + 1)
         setScoreUpdated(true)
       }
     }
-    // eslint-disable-next-line
-  }, [selectedOption])
+  }, [
+    selectedOption,
+    isSubmitted,
+    setIsSubmitted,
+    scoreUpdated,
+    setScoreUpdated,
+    setScore,
+  ])
 
   if (!questionData || !questionData.options) {
     return <div>Loading question...</div>
@@ -39,17 +124,7 @@ const Question = ({
             questionData.options_type === 'SINGLE_SELECT' ? 'flex-unwrap' : ''
           }`}
         >
-          {questionData.options.map(option => (
-            <li key={option.id}>
-              <Options
-                questionData={questionData}
-                option={option}
-                selectedOption={selectedOption}
-                isSubmitted={isSubmitted}
-                setSelectedOption={setSelectedOption}
-              />
-            </li>
-          ))}
+          {optionsLogic()}
         </ul>
       </li>
     </ul>

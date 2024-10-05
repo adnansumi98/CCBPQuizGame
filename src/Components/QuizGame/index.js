@@ -17,7 +17,7 @@ const QuizGame = () => {
   const [quizData, setQuizData] = useState([])
   const [apiStatus, setApiStatus] = useState(apiStatusConstants.initial)
 
-  const {setTotalQuestions} = useContext(GameContext)
+  const {setTotalQuestions, setScore} = useContext(GameContext)
 
   const fetchData = async () => {
     setApiStatus(apiStatusConstants.inProgress)
@@ -28,6 +28,7 @@ const QuizGame = () => {
         setQuizData(data)
         setTotalQuestions(data.total)
         setApiStatus(apiStatusConstants.success)
+        setScore(0)
       } else {
         setApiStatus(apiStatusConstants.failure)
       }
@@ -39,6 +40,7 @@ const QuizGame = () => {
 
   useEffect(() => {
     fetchData()
+    // eslint-disable-next-line
   }, [])
 
   const renderLoadingView = () => (
