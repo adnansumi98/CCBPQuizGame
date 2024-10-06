@@ -11,14 +11,30 @@
   font-family: 'Inter', 'Roboto', sans-serif;
   font-size: 14px;
   margin-top: 10px;
+  position: relative;
 }
 .option-image {
   width: 176px;
   height: 50px;
   margin-bottom: 12px;
-  opacity: 0px;
+  opacity: 1;
 }
 
+.answer-status-image {
+  position: absolute;
+  right: 4%;
+  top: 50%; /* Vertically center the image */
+  transform: translateY(-50%) translateX(+120%); /* Adjust to center relative to the container */
+}
+.option-radio {
+  line-height: 40px;
+  position: relative;
+}
+.option-radio input {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
 @media (min-width: 768px) {
   .option-button {
     width: min(25vw, 380px);
@@ -30,15 +46,15 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    line-height: 25px;
+    line-height: 40px;
   }
+
   .option-radio input {
     width: 16px;
     height: 16px;
     margin-right: 8px;
   }
-}
-.answer-status-image {
-  position: absolute;
-  left: 210px;
+  .answer-status-image {
+    transform: translateY(-50%) translateX(+140%);
+  }
 }

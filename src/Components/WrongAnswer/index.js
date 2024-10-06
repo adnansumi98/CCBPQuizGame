@@ -38,7 +38,6 @@ const WrongAnswer = ({questionData, option}) => {
             className="option-image"
           />
           <img
-            className="answer-status-image"
             src="/img/wrongAnswer.png"
             alt="Wrong"
             height="40px"
