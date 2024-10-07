@@ -1,4 +1,5 @@
 import {useContext} from 'react'
+import {Link} from 'react-router-dom'
 import Header from '../Header'
 import {GameContext} from '../../Utilities/GameContext'
 import './index.css'
@@ -28,6 +29,9 @@ const Result = () => {
         <p className="result-correct">
           You Attempted {correct} out {totalQuestions} questions as correct
         </p>
+        <Link to="/game-report">
+          <button type="button">Game Report</button>
+        </Link>
       </div>
     </div>
   )

@@ -41,7 +41,6 @@ const Question = ({
             <Options
               questionData={questionData}
               option={option}
-              selectedOption={selectedOption}
               setSelectedOption={setSelectedOption}
             />
           )}
@@ -84,7 +83,7 @@ const Question = ({
   )
 
   const optionsLogic = () => {
-    console.log(selectedOption)
+    // console.log(selectedOption)
     if (!selectedOption) return renderOptions()
 
     if (selectedOption.is_correct === 'true') return renderCorrectOptions()
@@ -98,13 +97,13 @@ const Question = ({
       setIsSubmitted(true)
 
       // Update score if correct and score hasn't been updated
-      if (selectedOption.is_correct && !scoreUpdated) {
+      if (selectedOption.is_correct === 'true' && !scoreUpdated) {
         setScore(prevScore => prevScore + 1)
         setIsSubmitted(false)
         setScoreUpdated(true)
       }
     }
-    // eslint: disable-next-line
+    // eslint-disable-next-line
   }, [
     selectedOption,
     isSubmitted,

@@ -1,6 +1,7 @@
+import {useEffect} from 'react'
 import './index.css'
 
-const Options = ({questionData, option, selectedOption, setSelectedOption}) => {
+const Options = ({questionData, option, setSelectedOption}) => {
   const getPrefix = index => {
     const prefixes = ['A', 'B', 'C', 'D']
     return index >= prefixes.length
@@ -12,7 +13,10 @@ const Options = ({questionData, option, selectedOption, setSelectedOption}) => {
     setSelectedOption(opt)
   }
 
-  const isSelected = selectedOption && selectedOption.id === option.id
+  useEffect(() => {
+    setSelectedOption(null)
+    // eslint-disable-next-line
+  }, [])
 
   switch (questionData.options_type) {
     case 'SINGLE_SELECT':
@@ -22,7 +26,6 @@ const Options = ({questionData, option, selectedOption, setSelectedOption}) => {
             type="radio"
             name="option"
             id={option.id}
-            checked={isSelected}
             onChange={() => handleOptionClick(option)}
             data-testid="option"
           />
@@ -31,18 +34,20 @@ const Options = ({questionData, option, selectedOption, setSelectedOption}) => {
       )
     case 'IMAGE':
       return (
-        <img
-          onClick={() => handleOptionClick(option)}
-          data-testid="option"
-          src={option.image_url}
-          alt={option.text}
-          className={`option-image ${isSelected ? 'selected' : ''}`}
-        />
+        <div className="option-image-container">
+          <img
+            onClick={() => handleOptionClick(option)}
+            data-testid="option"
+            src={option.image_url}
+            alt={option.text}
+            className="option-image"
+          />
+        </div>
       )
     default:
       return (
         <button
-          className={`option-button ${isSelected ? 'selected' : ''}`}
+          className="option-button"
           onClick={() => handleOptionClick(option)}
           data-testid="option"
           type="button"

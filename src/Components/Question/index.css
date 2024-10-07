@@ -24,6 +24,7 @@ ul {
 .options-container {
   display: flex;
   flex-direction: column;
+  gap: 20px;
 }
 
 .options-container li {

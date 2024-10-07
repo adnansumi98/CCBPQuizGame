@@ -30,7 +30,7 @@ const CorrectAnswer = ({questionData, option}) => {
       )
     case 'IMAGE':
       return (
-        <>
+        <div className="option-image-container">
           <img
             data-testid="option"
             src={option.image_url}
@@ -43,7 +43,7 @@ const CorrectAnswer = ({questionData, option}) => {
             height="40px"
             width="40px"
           />
-        </>
+        </div>
       )
     default:
       return (
