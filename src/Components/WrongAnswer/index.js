@@ -48,14 +48,16 @@ const WrongAnswer = ({questionData, option}) => {
     default:
       return (
         <>
-          <button
-            className="option-button wrong-answer"
-            data-testid="option"
-            type="button"
-          >
-            {getPrefix(questionData.options.indexOf(option))}
-            {/* prefix for options */}. {option.text}
-          </button>
+          <div className="option-button-container wrong-answer">
+            {`${getPrefix(questionData.options.indexOf(option))} .`}
+            <button
+              className="option-button wrong-answer"
+              data-testid="option"
+              type="button"
+            >
+              {option.text}
+            </button>
+          </div>
           <img
             className="answer-status-image"
             src="/img/wrongAnswer.png"

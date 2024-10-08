@@ -46,14 +46,17 @@ const Options = ({questionData, option, setSelectedOption}) => {
       )
     default:
       return (
-        <button
-          className="option-button"
-          onClick={() => handleOptionClick(option)}
-          data-testid="option"
-          type="button"
-        >
-          {getPrefix(questionData.options.indexOf(option))}. {option.text}
-        </button>
+        <div className="option-button-container">
+          {`${getPrefix(questionData.options.indexOf(option))} .`}
+          <button
+            className="option-button"
+            onClick={() => handleOptionClick(option)}
+            data-testid="option"
+            type="button"
+          >
+            {option.text}
+          </button>
+        </div>
       )
   }
 }

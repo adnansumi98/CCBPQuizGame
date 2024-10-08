@@ -4,14 +4,8 @@ import {GameContext} from '../../Utilities/GameContext'
 import Header from '../Header'
 import QuizItem from '../QuizItem'
 import ErrorView from '../ErrorView'
+import {apiStatusConstants} from '../../Utilities/Constants'
 import './index.css'
-
-const apiStatusConstants = {
-  initial: 'INITIAL',
-  success: 'SUCCESS',
-  failure: 'FAILURE',
-  inProgress: 'IN_PROGRESS',
-}
 
 const QuizGame = () => {
   const [quizData, setQuizData] = useState([])

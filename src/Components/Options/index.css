@@ -1,18 +1,36 @@
-.option-button {
+.option-button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
   background: #cbd5e1;
   color: #334155;
   width: 221px;
   height: 48px;
   padding: 8px 24px 8px 24px;
   font-weight: 400;
-  gap: 10px;
+  border-radius: 8px;
+  text-align: left;
+  margin-top: 10px;
+  position: relative;
+  font-size: 14px;
+}
+
+.option-button {
+  background: #cbd5e1;
+  color: #334155;
+  width: 80%;
+  height: 80%;
+  font-weight: 400;
   border-radius: 8px;
   text-align: left;
   font-family: 'Inter', 'Roboto', sans-serif;
   font-size: 14px;
-  margin-top: 10px;
-  position: relative;
+  cursor: pointer;
+  margin-bottom: 30px;
+  margin-right: 10px;
 }
+
 .option-image {
   width: 176px;
   height: 50px;
@@ -22,6 +40,7 @@
   transition: transform 0.2s, box-shadow 0.2s;
   position: relative;
 }
+
 .option-image-container {
   display: flex;
   flex-direction: row;
@@ -30,7 +49,9 @@
   text-align: center;
   min-width: 30vw;
   text-align: flex-start;
+  padding-right: 30px;
 }
+
 .option-image:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -42,19 +63,25 @@
   top: 50%; /* Vertically center the image */
   transform: translateY(-50%) translateX(+120%); /* Adjust to center relative to the container */
 }
+
 .option-radio {
   line-height: 10px;
   position: relative;
 }
+
 .option-radio input {
   width: 16px;
   height: 16px;
   margin-right: 8px;
 }
+
 @media (min-width: 768px) {
-  .option-button {
+  .option-button-container {
     width: min(25vw, 380px);
     height: min(8vh, 64px);
+    font-size: 16px;
+  }
+  .option-button {
     font-size: 16px;
   }
   .option-radio {
