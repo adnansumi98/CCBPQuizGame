@@ -1,6 +1,8 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useContext} from 'react'
 import {useHistory} from 'react-router-dom'
 import Question from '../Question'
+import {GameContext} from '../../Utilities/GameContext'
+import {gameStatusConstants} from '../../Utilities/Constants'
 import './index.css'
 
 const QuizItem = props => {
@@ -12,6 +14,7 @@ const QuizItem = props => {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [scoreUpdated, setScoreUpdated] = useState(false)
   const history = useHistory()
+  const {gameStatus, setGameStatus} = useContext(GameContext)
 
   // for timer and question no update when time is up
   useEffect(() => {
@@ -20,6 +23,9 @@ const QuizItem = props => {
       interval = setInterval(() => {
         setTimer(prevTimer => prevTimer - 1)
       }, 1000)
+    } else if (timer === 0) {
+      setIsSubmitted(true)
+      setGameStatus(gameStatusConstants.finished)
     }
     return () => clearInterval(interval)
     // eslint-disable-next-line
@@ -39,17 +45,27 @@ const QuizItem = props => {
   // for last question
   useEffect(() => {
     if (questionNo + 1 === total && timer === 0) {
+      // the result pages wil be redirected after the status changed
+      setGameStatus(gameStatusConstants.finished)
+    }
+    // eslint-disable-next-line
+  }, [questionNo, total, timer, history])
+
+  // game result redirect
+  useEffect(() => {
+    if (gameStatus === gameStatusConstants.finished) {
       history.push('/game-result')
     }
-  }, [questionNo, total, timer, history])
+    // eslint-disable-next-line
+  }, [gameStatus])
 
   const handleNextQuestion = () => {
     if (questionNo + 1 < total) {
       setQuestionNo(prevQuestionNo => prevQuestionNo + 1)
       setTimer(15)
       setIsSubmitted(false)
-    } else {
-      history.push('/game-result')
+    } else if (questionNo === total - 1 && isSubmitted === true) {
+      setGameStatus(gameStatusConstants.finished)
     }
   }
 
@@ -75,17 +91,15 @@ const QuizItem = props => {
         scoreUpdated={scoreUpdated}
         setScoreUpdated={setScoreUpdated}
       />
-      <div className="next-button-container">
-        <button
-          data-testid="next-button"
-          type="button"
-          className={`next-button ${isSubmitted ? 'nxtbtn-active' : ''}`}
-          onClick={handleNextQuestion}
-          disabled={!isSubmitted}
-        >
-          Next Question
-        </button>
-      </div>
+      <button
+        data-testid="next-button"
+        type="button"
+        className={`next-button ${isSubmitted ? 'nxtbtn-active' : ''}`}
+        onClick={handleNextQuestion}
+        disabled={!isSubmitted}
+      >
+        Next Question
+      </button>
     </div>
   )
 }

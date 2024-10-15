@@ -84,12 +84,12 @@ const Question = ({
 
   const optionsLogic = () => {
     // console.log(selectedOption)
-    if (!selectedOption) return renderOptions()
 
+    if (!selectedOption) return renderOptions()
     if (selectedOption.is_correct === 'true') return renderCorrectOptions()
     if (selectedOption.is_correct === 'false') return renderWrongOptions()
 
-    return ''
+    return renderOptions()
   }
 
   useEffect(() => {

@@ -77,9 +77,10 @@
 
 @media (min-width: 768px) {
   .option-button-container {
-    width: min(25vw, 380px);
-    height: min(8vh, 64px);
+    width: min(28vw, 380px);
+    height: min(9vh, 64px);
     font-size: 16px;
+    padding: 8px 0px 8px 0px;
   }
   .option-button {
     font-size: 16px;

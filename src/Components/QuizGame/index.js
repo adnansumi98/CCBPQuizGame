@@ -4,14 +4,17 @@ import {GameContext} from '../../Utilities/GameContext'
 import Header from '../Header'
 import QuizItem from '../QuizItem'
 import ErrorView from '../ErrorView'
-import {apiStatusConstants} from '../../Utilities/Constants'
+import {
+  apiStatusConstants,
+  gameStatusConstants,
+} from '../../Utilities/Constants'
 import './index.css'
 
 const QuizGame = () => {
   const [quizData, setQuizData] = useState([])
   const [apiStatus, setApiStatus] = useState(apiStatusConstants.initial)
 
-  const {setTotalQuestions, setScore} = useContext(GameContext)
+  const {setTotalQuestions, setScore, setGameStatus} = useContext(GameContext)
 
   const fetchData = async () => {
     setApiStatus(apiStatusConstants.inProgress)
@@ -22,6 +25,7 @@ const QuizGame = () => {
         setQuizData(data)
         setTotalQuestions(data.total)
         setApiStatus(apiStatusConstants.success)
+        setGameStatus(gameStatusConstants.started)
         setScore(0)
       } else {
         setApiStatus(apiStatusConstants.failure)

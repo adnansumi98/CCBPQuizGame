@@ -47,14 +47,18 @@ const Options = ({questionData, option, setSelectedOption}) => {
     default:
       return (
         <div className="option-button-container">
-          {`${getPrefix(questionData.options.indexOf(option))} .`}
+          {/* CCBP TEST CASE
+          {`${getPrefix(questionData.options.indexOf(option))} .`} */}
           <button
             className="option-button"
             onClick={() => handleOptionClick(option)}
             data-testid="option"
             type="button"
           >
-            {option.text}
+            {getPrefix(questionData.options.indexOf(option))}. {option.text}
+            {/* 
+            CCBP TEST CASE
+            {option.text} */}
           </button>
         </div>
       )

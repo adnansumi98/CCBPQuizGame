@@ -20,8 +20,8 @@
 }
 
 .form-container form img {
-  width: 153.13px;
-  height: 122.36px;
+  width: Max(153.13px, 25%);
+  height: Max(122.36px, 20%);
   opacity: 0px;
 }
 .form-container form h1 {
@@ -105,8 +105,8 @@
     opacity: 0px;
   }
   .form-container form img {
-    width: 342px;
-    height: 240px;
+    width: Min(342px, 35%);
+    height: Min(240px, 30%);
     /* top: 232px;
     left: 479px; */
     gap: 0px;

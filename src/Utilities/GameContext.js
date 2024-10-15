@@ -6,8 +6,12 @@ export const GameContext = createContext()
 export const GameProvider = ({children}) => {
   const [gameStatus, setGameStatus] = useState(gameStatusConstants.initial)
   const [score, setScore] = useState(0)
-  const [reviewquestions, setReviewQuestions] = useState([])
+  const [reviewQuestions, setReviewQuestions] = useState([])
   const [totalQuestions, setTotalQuestions] = useState(0)
+  const [
+    questionsIncorrectlyAnswered,
+    setQuestionsIncorrectlyAnswered,
+  ] = useState([])
 
   useEffect(() => {
     console.log('score updated:', score)
@@ -18,12 +22,14 @@ export const GameProvider = ({children}) => {
       value={{
         score,
         setScore,
-        reviewquestions,
+        reviewQuestions,
         setReviewQuestions,
         totalQuestions,
         setTotalQuestions,
         gameStatus,
         setGameStatus,
+        questionsIncorrectlyAnswered,
+        setQuestionsIncorrectlyAnswered,
       }}
     >
       {children}
