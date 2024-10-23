@@ -22,10 +22,10 @@ const Options = ({questionData, option, setSelectedOption}) => {
     case 'SINGLE_SELECT':
       return (
         <div className="option-radio">
+          id={option.id}
           <input
             type="radio"
             name="option"
-            id={option.id}
             onChange={() => handleOptionClick(option)}
             data-testid="option"
           />
@@ -47,18 +47,19 @@ const Options = ({questionData, option, setSelectedOption}) => {
     default:
       return (
         <div className="option-button-container">
-          {/* CCBP TEST CASE
-          {`${getPrefix(questionData.options.indexOf(option))} .`} */}
+          {/* TODO: Remvoe the code after the project is done
+           CCBP TEST CASE */}
+          {`${getPrefix(questionData.options.indexOf(option))} .`}
           <button
             className="option-button"
             onClick={() => handleOptionClick(option)}
             data-testid="option"
             type="button"
           >
-            {getPrefix(questionData.options.indexOf(option))}. {option.text}
-            {/* 
-            CCBP TEST CASE
+            {/*  TODO: uncomment this code after project done
+            {getPrefix(questionData.options.indexOf(option))} 
             {option.text} */}
+            {option.text}
           </button>
         </div>
       )
