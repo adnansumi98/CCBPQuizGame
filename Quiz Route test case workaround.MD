@@ -50,7 +50,7 @@ page should consist of at least one HTML unordered list element to display the
 list of options ↳ TestingLibraryElementError: Unable to find an accessible
 element with the role "button" and name "flex center"
 
-# T
+# Changed the role of the input element to button but the test is failing.
 
 Test Case 47: In the Quiz Game Route, when the HTTP GET request in the page is
 successful and the active question "options_type" is "SINGLE_SELECT", then the
@@ -58,11 +58,17 @@ page should consist of HTML list items to display the options ↳
 TestingLibraryElementError: Unable to find an accessible element with the role
 "button" and name "flex center"
 
+# wrapped the radio input inside a button
+
+# The requirement is satisfied already but the test is failing.
+
 Test Case 49: In the Quiz Game Route, when an option in the question is clicked,
 then the timer should stop running ↳ TestingLibraryElementError: Unable to find
 an element with the text: /15/i. This could be because the text is broken up by
 multiple elements. In this case, you can provide a function for your text
 matcher to make your matcher more flexible.
+
+# The requirement is satisfied already but the test is failing.
 
 Test Case 51: In the Quiz Game Route, when the "option_type" of the active
 question is "DEFAULT" and an incorrect option on the page is clicked, then the

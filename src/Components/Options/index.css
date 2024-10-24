@@ -47,6 +47,7 @@
   text-align: center;
   min-width: 30vw;
   padding-right: 30px;
+  margin-bottom: 10px;
 }
 
 .option-image:hover {
@@ -103,7 +104,18 @@
   }
 }
 .button-image-wrap {
-  color: transparent;
+  display: flex;
+  flex-direction: row;
+  font-family: 'Inter', 'Roboto', sans-serif;
+  justify-content: center;
+  align-items: center;
+  color: #334155;
+  font-weight: normal;
+  font-size: 14px;
   border: transparent;
   background-color: transparent;
+  max-height: 10%;
+  margin: 0px;
+  margin-bottom: 2px;
+  padding: 0px;
 }

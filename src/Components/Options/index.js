@@ -22,15 +22,19 @@ const Options = ({questionData, option, setSelectedOption}) => {
     case 'SINGLE_SELECT':
       return (
         <div className="option-radio">
-          <input
-            id={option.id}
-            type="radio"
-            name="option"
-            onChange={() => handleOptionClick(option)}
-            data-testid="option"
-            role="button"
-          />
-          <label htmlFor={option.id}>{option.text}</label>
+          <button
+            type="button"
+            className="button-image-wrap"
+            onClick={() => handleOptionClick(option)}
+          >
+            <input
+              id={option.id}
+              type="radio"
+              name="option"
+              data-testid="option"
+            />
+            <label htmlFor={option.id}>{option.text}</label>
+          </button>
         </div>
       )
     case 'IMAGE':
