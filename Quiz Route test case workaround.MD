@@ -58,7 +58,7 @@ page should consist of HTML list items to display the options ↳
 TestingLibraryElementError: Unable to find an accessible element with the role
 "button" and name "flex center"
 
-# wrapped the radio input inside a button
+# wrapped the radio input inside a button but test failed.
 
 # The requirement is satisfied already but the test is failing.
 
@@ -77,11 +77,15 @@ beside the correct option and selected option respectively ↳
 TestingLibraryElementError: Unable to find an element with the alt text:
 incorrect close circle
 
+# The requirement is satisfied already but the test is failing. Alt is also updated.
+
 Test Case 52: In the Quiz Game Route, when the "option_type" of the active
 question is "IMAGE" and a correct option on the page is clicked, then the
 "correct checked circle" image should be displayed beside the selected option ↳
 TestingLibraryElementError: Unable to find an accessible element with the role
 "button" and name "space between"
+
+# The requirement is satisfied already but the test is failing. Alt is also updated.
 
 Test Case 53: In the Quiz Game Route, when the "option_type" of the active
 question is "IMAGE" and an incorrect option on the page is clicked, then the
@@ -89,6 +93,8 @@ question is "IMAGE" and an incorrect option on the page is clicked, then the
 beside the correct option and selected option respectively ↳
 TestingLibraryElementError: Unable to find an accessible element with the role
 "button" and name "flex center"
+
+# The requirement is satisfied already but the test is failing. Alt is also updated.
 
 Test Case 54: In the Quiz Game Route, when the "option_type" of the active
 question is "SINGLE_SELECT" and a correct option on the page is clicked, then
