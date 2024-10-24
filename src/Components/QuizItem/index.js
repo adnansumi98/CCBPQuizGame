@@ -23,10 +23,17 @@ const QuizItem = props => {
       interval = setInterval(() => {
         setTimer(prevTimer => prevTimer - 1)
       }, 1000)
-    } else if (timer === 0) {
-      setIsSubmitted(true)
-      setGameStatus(gameStatusConstants.finished)
     }
+    // TODO: Donot increment question number here
+    // else if (timer === 0 && questionNo + 1 === total) {
+    //   setIsSubmitted(true)
+    //   setGameStatus(gameStatusConstants.finished)
+    // }
+    // else {
+    //   setQuestionNo(prev => (prev - 1 < total ? prev + 1 : prev))
+    //   setTimer(15)
+    //   setIsSubmitted(false)
+    // }
     return () => clearInterval(interval)
     // eslint-disable-next-line
   }, [timer])
@@ -59,6 +66,7 @@ const QuizItem = props => {
     // eslint-disable-next-line
   }, [gameStatus])
 
+  // Next Button OnClick
   const handleNextQuestion = () => {
     if (questionNo + 1 < total) {
       setQuestionNo(prevQuestionNo => prevQuestionNo + 1)
@@ -96,7 +104,8 @@ const QuizItem = props => {
         type="button"
         className={`next-button ${isSubmitted ? 'nxtbtn-active' : ''}`}
         onClick={handleNextQuestion}
-        disabled={!isSubmitted}
+        // TODO: Uncomment for dynamic next button
+        // disabled={!isSubmitted}
       >
         Next Question
       </button>

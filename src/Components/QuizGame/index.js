@@ -13,7 +13,6 @@ import './index.css'
 const QuizGame = () => {
   const [quizData, setQuizData] = useState([])
   const [apiStatus, setApiStatus] = useState(apiStatusConstants.initial)
-
   const {setTotalQuestions, setScore, setGameStatus} = useContext(GameContext)
 
   const fetchData = async () => {

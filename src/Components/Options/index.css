@@ -7,28 +7,27 @@
   color: #334155;
   width: 221px;
   height: 48px;
-  padding: 8px 24px 8px 24px;
   font-weight: 400;
   border-radius: 8px;
   text-align: left;
-  margin-top: 10px;
-  position: relative;
+  margin-top: 5px;
   font-size: 14px;
+  padding: 5%;
+  margin-bottom: 10px;
 }
 
 .option-button {
+  margin-top: 0px;
   background: #cbd5e1;
   color: #334155;
-  width: 80%;
-  height: 80%;
+  width: 100%;
   font-weight: 400;
-  border-radius: 8px;
   text-align: left;
   font-family: 'Inter', 'Roboto', sans-serif;
   font-size: 14px;
   cursor: pointer;
-  margin-bottom: 30px;
-  margin-right: 10px;
+  margin-left: 6px;
+  padding-left: 0px;
 }
 
 .option-image {
@@ -45,10 +44,8 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  margin: 10px;
   text-align: center;
   min-width: 30vw;
-  text-align: flex-start;
   padding-right: 30px;
 }
 
@@ -73,6 +70,7 @@
   width: 16px;
   height: 16px;
   margin-right: 8px;
+  margin-bottom: 10px;
 }
 
 @media (min-width: 768px) {
@@ -80,7 +78,6 @@
     width: min(28vw, 380px);
     height: min(9vh, 64px);
     font-size: 16px;
-    padding: 8px 0px 8px 0px;
   }
   .option-button {
     font-size: 16px;
