@@ -21,8 +21,8 @@ const WrongAnswer = ({questionData, option}) => {
           <label htmlFor={option.id}>{option.text}</label>
           <img
             className="answer-status-image"
-            src="/img/wrongAnswer.png"
-            alt="Wrong"
+            src="https://assets.ccbp.in/frontend/react-js/quiz-game-close-circle-img.png"
+            alt="incorrect close circle"
             height="40px"
             width="40px"
           />
@@ -38,8 +38,9 @@ const WrongAnswer = ({questionData, option}) => {
             className="option-image"
           />
           <img
-            src="/img/wrongAnswer.png"
-            alt="Wrong"
+            className="answer-status-image"
+            src="https://assets.ccbp.in/frontend/react-js/quiz-game-close-circle-img.png"
+            alt="incorrect close circle"
             height="40px"
             width="40px"
           />
@@ -49,14 +50,15 @@ const WrongAnswer = ({questionData, option}) => {
       return (
         <>
           <div className="option-button-container wrong-answer">
-            {/* CCBP TEST CASE
-          {`${getPrefix(questionData.options.indexOf(option))} .`} */}
+            {/* CCBP TEST CASE */}
+            {getPrefix(questionData.options.indexOf(option))}.
             <button
               className="option-button wrong-answer"
               data-testid="option"
               type="button"
             >
-              {getPrefix(questionData.options.indexOf(option))}. {option.text}
+              {/* {getPrefix(questionData.options.indexOf(option))}.  */}
+              {option.text}
               {/* 
             CCBP TEST CASE
             {option.text} */}
@@ -64,8 +66,8 @@ const WrongAnswer = ({questionData, option}) => {
           </div>
           <img
             className="answer-status-image"
-            src="/img/wrongAnswer.png"
-            alt="Wrong"
+            src="https://assets.ccbp.in/frontend/react-js/quiz-game-close-circle-img.png"
+            alt="incorrect close circle"
             height="40px"
             width="40px"
           />

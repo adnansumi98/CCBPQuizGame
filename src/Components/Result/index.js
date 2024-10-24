@@ -14,14 +14,20 @@ const Result = () => {
     <div
       className="form-container form-col"
       style={{
-        backgroundImage: success ? `url('/img/Win.png') ` : null,
+        backgroundImage: success
+          ? `url('https://assets.ccbp.in/frontend/react-js/quiz-game-congrats-card-bg.png ') `
+          : null,
         backgroundSize: 'cover',
         backgroundRepeat: 'repeat',
       }}
     >
       <img
-        src={success ? '/img/Success.png' : '/img/Failure.png'}
-        alt={success ? 'success' : 'failure'}
+        src={
+          success
+            ? 'https://assets.ccbp.in/frontend/react-js/quiz-game-congrats-trophy-img.png '
+            : 'https://assets.ccbp.in/frontend/react-js/quiz-game-lose-img.png'
+        }
+        alt={success ? 'won' : 'lose'}
         className="result-image"
       />
       <p className="result">{success ? 'Congrats' : 'You Lose'}!</p>

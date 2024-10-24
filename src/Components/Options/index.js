@@ -22,8 +22,8 @@ const Options = ({questionData, option, setSelectedOption}) => {
     case 'SINGLE_SELECT':
       return (
         <div className="option-radio">
-          id={option.id}
           <input
+            id={option.id}
             type="radio"
             name="option"
             onChange={() => handleOptionClick(option)}
@@ -49,7 +49,7 @@ const Options = ({questionData, option, setSelectedOption}) => {
         <div className="option-button-container">
           {/* TODO: Remvoe the code after the project is done
            CCBP TEST CASE */}
-          {`${getPrefix(questionData.options.indexOf(option))} .`}
+          {getPrefix(questionData.options.indexOf(option))}.
           <button
             className="option-button"
             onClick={() => handleOptionClick(option)}
