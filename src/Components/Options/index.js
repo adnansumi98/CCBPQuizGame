@@ -28,6 +28,7 @@ const Options = ({questionData, option, setSelectedOption}) => {
             name="option"
             onChange={() => handleOptionClick(option)}
             data-testid="option"
+            role="button"
           />
           <label htmlFor={option.id}>{option.text}</label>
         </div>
@@ -62,7 +63,7 @@ const Options = ({questionData, option, setSelectedOption}) => {
             type="button"
           >
             {/*  TODO: uncomment this code after project done
-            {getPrefix(questionData.options.indexOf(option))} 
+            {getPrefix(questionData.options.indexOf(option))}
             {option.text} */}
             {option.text}
           </button>

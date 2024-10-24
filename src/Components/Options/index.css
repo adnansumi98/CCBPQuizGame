@@ -62,15 +62,18 @@
 }
 
 .option-radio {
-  line-height: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  line-height: 20px;
   position: relative;
+  margin-bottom: 15px;
 }
 
 .option-radio input {
   width: 16px;
   height: 16px;
   margin-right: 8px;
-  margin-bottom: 10px;
 }
 
 @media (min-width: 768px) {
