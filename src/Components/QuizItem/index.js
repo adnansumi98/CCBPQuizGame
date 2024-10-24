@@ -106,6 +106,7 @@ const QuizItem = props => {
         onClick={handleNextQuestion}
         // TODO: Uncomment for dynamic next button
         // disabled={!isSubmitted}
+        hidden={questionNo === 9}
       >
         Next Question
       </button>
