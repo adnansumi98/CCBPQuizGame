@@ -102,3 +102,8 @@
     transform: translateY(-50%) translateX(+140%);
   }
 }
+.button-image-wrap {
+  color: transparent;
+  border: transparent;
+  background-color: transparent;
+}

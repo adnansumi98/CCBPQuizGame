@@ -41,7 +41,7 @@
   color: #334155;
 }
 .result-image {
-  max-width: 30%;
+  max-width: 15%;
 }
 
 @media (max-width: 768px) {
@@ -60,5 +60,8 @@
   .result-sucess,
   .error-details {
     font-size: 18px;
+  }
+  .result-image {
+    max-width: 30%;
   }
 }

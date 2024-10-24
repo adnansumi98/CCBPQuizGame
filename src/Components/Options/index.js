@@ -35,13 +35,18 @@ const Options = ({questionData, option, setSelectedOption}) => {
     case 'IMAGE':
       return (
         <div className="option-image-container">
-          <img
+          <button
+            type="button"
+            className="button-image-wrap"
             onClick={() => handleOptionClick(option)}
-            data-testid="option"
-            src={option.image_url}
-            alt={option.text}
-            className="option-image"
-          />
+          >
+            <img
+              data-testid="option"
+              src={option.image_url}
+              alt={option.text}
+              className="option-image"
+            />
+          </button>
         </div>
       )
     default:

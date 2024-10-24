@@ -31,12 +31,14 @@ const CorrectAnswer = ({questionData, option}) => {
     case 'IMAGE':
       return (
         <div className="option-image-container">
-          <img
-            data-testid="option"
-            src={option.image_url}
-            alt={option.text}
-            className="option-image"
-          />
+          <button type="button" className="button-image-wrap">
+            <img
+              data-testid="option"
+              src={option.image_url}
+              alt={option.text}
+              className="option-image"
+            />
+          </button>
           <img
             className="answer-status-image"
             src="https://assets.ccbp.in/frontend/react-js/quiz-game-check-circle-img.png"
