@@ -2,9 +2,6 @@ ul {
   list-style: none;
 }
 .question-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   width: 100%;
   margin-right: auto;
 }
@@ -15,7 +12,7 @@ ul {
   font-size: 16px;
   line-height: 19px;
   display: flex;
-  align-items: center;
+  justify-content: space-between;
   color: #334155;
   transform: rotate(-0.01deg);
 }
